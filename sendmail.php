@@ -14,7 +14,7 @@
 	$mail->setFrom('info@fls.guru', 'Фрилансер по жизни');
 	// Кому отправить
 	$mail->addAddress('alex.vl.vc@gmail.com');
-	// Темк письма
+	// Темa письма
 	$mail->Subject = 'Привет, это тестовое писмо';
 
 	// Рука
@@ -30,7 +30,7 @@
 		$body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>';
 	}
 	if(trim(!empty($_POST['email']))){
-		$body.='<p><strong>E-mail</strong> '.$_POST['email'].'</p>';
+		$body.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>';
 	}
 	if(trim(!empty($_POST['hand']))){
 		$body.='<p><strong>Рука:</strong> '.$hand.'</p>';
@@ -46,10 +46,10 @@
 	if(!empty($_FILES['image']['tmp_name'])){
 		// Путь загрузки файла
 		$filePath = __DIR__ . "/files/" . $_FILES['image']['name'];
-		// Грузим фвйл
-		if(copy($_FiLES['image']['tmp_name'], $filePath)){
+		// Грузим фaйл
+		if(copy($_FILES['image']['tmp_name'], $filePath)){
 			$fileAttach = $filePath;
-			$body.='<p><strong>Фото в приложении</strong></p>';
+			$body.='<p><strong>Фото в приложении</strong>';
 			$mail->addAttachment($fileAttach);
 		}
 	}
