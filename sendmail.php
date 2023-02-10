@@ -11,7 +11,7 @@
 	$mail->IsHTML(true);
 
 	// От кого письмо
-	$mail->setForm('info@fls.guru', 'Фрилансер по жизни');
+	$mail->setFrom('info@fls.guru', 'Фрилансер по жизни');
 	// Кому отправить
 	$mail->addAddress('alex.vl.vc@gmail.com');
 	// Темк письма
