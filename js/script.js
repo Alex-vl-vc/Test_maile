@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (error === 0) {
 			form.classList.add('_sending');
-
 			let response = await fetch('sendmail.php', {
 				method: 'POST',
 				body: formData
@@ -30,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				alert('Ошибка');
 				form.classList.remove('_sending');
 			}
-
 		} else {
 			alert('Заполните пожалуйста поля отмеченные красным цветом');
 		}
