@@ -2,16 +2,16 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 
-	require 'phpmailer/src/Exception.php';
+	require 'phpmailer/PHPMailer-master/';
 	require 'phpmailer/src/PHPMailer.php';
 
 	$mail = new PHPMailer(true);
 	$mail->Charset = 'UTF-8';
-	$mail->setLanguage('ru', 'phpmailer/language/');
+	$mail->setLanguage('ru', '/phpmailer/language/phpmailer.lang-ru.php');
 	$mail->IsHTML(true);
 
 	// От кого письмо
-	$mail->setFrom('info@fls.guru', 'Фрилансер по жизни');
+	$mail->setFrom('alex.vl.vc@gmail.com', 'Фрилансер по жизни');
 	// Кому отправить
 	$mail->addAddress('alex.vl.vc@gmail.com');
 	// Темa письма
@@ -49,7 +49,7 @@
 		// Грузим фaйл
 		if(copy($_FILES['image']['tmp_name'], $filePath)){
 			$fileAttach = $filePath;
-			$body.='<p><strong>Фото в приложении</strong>';
+			$body.='<p><strong>Фото в приложении</strong></p>';
 			$mail->addAttachment($fileAttach);
 		}
 	}
@@ -61,6 +61,7 @@
 		$message = 'Ошибка';
 	} else {
 		$message = 'Данные отправленны!';
+		
 	}
 
 	$response = ['message' => $message];
@@ -68,6 +69,3 @@
 	header('Content-type: application/json');
 	echo json_encode($response);
 ?>
-
-
-
